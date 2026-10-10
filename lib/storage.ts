@@ -39,65 +39,92 @@ export const DEFAULT_WORKOUT_SYSTEMS: WorkoutSystem[] = [
     days: [
       {
         id: 'day-push',
-        title: 'Day 1: Chest, Shoulders & Triceps (Push)',
-        description: 'Focus on upper chest thickness and lateral shoulder width',
+        title: 'Day 1: Chest & Back Session',
+        description: 'Upper, Mid & Inner Chest + Lat Width, Mid-Back & Upper Back/Rhomboids',
         order: 1,
         exercises: [
           {
-            id: 'ex-incline-db',
-            name: 'Incline Dumbbell Bench Press',
+            id: 'ex-incline-db-press',
+            name: 'Incline Dumbbell Press',
             category: 'chest',
             targetSets: 3,
             targetReps: 10,
-            defaultWeight: 26,
-            notes: '30-degree incline, 3-second negative descent, explode up.',
+            defaultWeight: 24,
+            notes: 'Target: Upper Chest • Grip: Neutral to 45-degree pronated grip (palms facing slightly inward/forward)',
             sets: [
-              { id: 'set-inc-1', setNumber: 1, weight: 26, reps: 10, completed: false },
-              { id: 'set-inc-2', setNumber: 2, weight: 26, reps: 10, completed: false },
-              { id: 'set-inc-3', setNumber: 3, weight: 26, reps: 10, completed: false },
+              { id: 'set-idp-1', setNumber: 1, weight: 24, reps: 10, completed: false },
+              { id: 'set-idp-2', setNumber: 2, weight: 24, reps: 10, completed: false },
+              { id: 'set-idp-3', setNumber: 3, weight: 24, reps: 10, completed: false },
             ],
           },
           {
-            id: 'ex-chest-dip',
-            name: 'Machine Chest Press / Weighted Dips',
+            id: 'ex-flat-bench-press',
+            name: 'Flat Bench Press',
             category: 'chest',
+            targetSets: 3,
+            targetReps: 10,
+            defaultWeight: 60,
+            notes: 'Target: Mid Chest / Overall Mass • Grip: Pronated grip (overhand, slightly wider than shoulder-width)',
+            sets: [
+              { id: 'set-fbp-1', setNumber: 1, weight: 60, reps: 10, completed: false },
+              { id: 'set-fbp-2', setNumber: 2, weight: 60, reps: 10, completed: false },
+              { id: 'set-fbp-3', setNumber: 3, weight: 60, reps: 10, completed: false },
+            ],
+          },
+          {
+            id: 'ex-pec-deck',
+            name: 'Butterfly Machine (Pec Deck)',
+            category: 'chest',
+            targetSets: 3,
+            targetReps: 12,
+            defaultWeight: 45,
+            notes: 'Target: Inner Chest / Isolation • Grip: Neutral grip / forearm pads (elbows bent at 90 degrees, palms facing inward)',
+            sets: [
+              { id: 'set-pd-1', setNumber: 1, weight: 45, reps: 12, completed: false },
+              { id: 'set-pd-2', setNumber: 2, weight: 45, reps: 12, completed: false },
+              { id: 'set-pd-3', setNumber: 3, weight: 45, reps: 12, completed: false },
+            ],
+          },
+          {
+            id: 'ex-lat-pulldown-cb',
+            name: 'Lat Pulldown',
+            category: 'back',
+            targetSets: 3,
+            targetReps: 10,
+            defaultWeight: 55,
+            notes: 'Target: Lat Width • Grip: Medium overhand grip (standard shoulder-width or slightly wider)',
+            sets: [
+              { id: 'set-lpcb-1', setNumber: 1, weight: 55, reps: 10, completed: false },
+              { id: 'set-lpcb-2', setNumber: 2, weight: 55, reps: 10, completed: false },
+              { id: 'set-lpcb-3', setNumber: 3, weight: 55, reps: 10, completed: false },
+            ],
+          },
+          {
+            id: 'ex-seated-cable-row-close',
+            name: 'Seated Cable Row (Close Grip)',
+            category: 'back',
             targetSets: 3,
             targetReps: 10,
             defaultWeight: 50,
-            notes: 'Deep stretch at bottom, squeeze chest at full lockout.',
+            notes: 'Target: Mid-Back Thickness • Grip: Neutral grip (palms facing each other using a close V-bar / parallel handle)',
             sets: [
-              { id: 'set-cd-1', setNumber: 1, weight: 50, reps: 10, completed: false },
-              { id: 'set-cd-2', setNumber: 2, weight: 50, reps: 10, completed: false },
-              { id: 'set-cd-3', setNumber: 3, weight: 50, reps: 10, completed: false },
+              { id: 'set-scrc-1', setNumber: 1, weight: 50, reps: 10, completed: false },
+              { id: 'set-scrc-2', setNumber: 2, weight: 50, reps: 10, completed: false },
+              { id: 'set-scrc-3', setNumber: 3, weight: 50, reps: 10, completed: false },
             ],
           },
           {
-            id: 'ex-lat-raise',
-            name: 'Cable Lateral Raise',
-            category: 'shoulders',
-            targetSets: 4,
-            targetReps: 12,
-            defaultWeight: 7.5,
-            notes: 'Cuffs at wrist height, lead with elbows, pause 1s at apex.',
-            sets: [
-              { id: 'set-lr-1', setNumber: 1, weight: 7.5, reps: 12, completed: false },
-              { id: 'set-lr-2', setNumber: 2, weight: 7.5, reps: 12, completed: false },
-              { id: 'set-lr-3', setNumber: 3, weight: 7.5, reps: 12, completed: false },
-              { id: 'set-lr-4', setNumber: 4, weight: 7.5, reps: 12, completed: false },
-            ],
-          },
-          {
-            id: 'ex-tri-pushdown',
-            name: 'Tricep Rope Overhead Extension',
-            category: 'arms',
+            id: 'ex-seated-cable-row-wide',
+            name: 'Seated Cable Row (Wide Grip)',
+            category: 'back',
             targetSets: 3,
-            targetReps: 12,
-            defaultWeight: 17.5,
-            notes: 'Flared elbows, full triceps long-head stretch.',
+            targetReps: 10,
+            defaultWeight: 45,
+            notes: 'Target: Upper Back & Rhomboids (Lower-back safe alternative to T-bar rows) • Grip: Pronated overhand grip (using a wide bar, pulling high toward the upper chest)',
             sets: [
-              { id: 'set-tri-1', setNumber: 1, weight: 17.5, reps: 12, completed: false },
-              { id: 'set-tri-2', setNumber: 2, weight: 17.5, reps: 12, completed: false },
-              { id: 'set-tri-3', setNumber: 3, weight: 17.5, reps: 12, completed: false },
+              { id: 'set-scrw-1', setNumber: 1, weight: 45, reps: 10, completed: false },
+              { id: 'set-scrw-2', setNumber: 2, weight: 45, reps: 10, completed: false },
+              { id: 'set-scrw-3', setNumber: 3, weight: 45, reps: 10, completed: false },
             ],
           },
         ],
@@ -734,19 +761,49 @@ class LocalGymDatabase {
     }));
   }
 
+  private migrateDayOneIfNeeded(systems: WorkoutSystem[]): { systems: WorkoutSystem[]; migrated: boolean } {
+    let migrated = false;
+    const defaultDayOne = DEFAULT_WORKOUT_SYSTEMS[0].days[0];
+    const updated = systems.map((sys) => {
+      if (sys.id !== 'system-aesthetic-4day') return sys;
+      return {
+        ...sys,
+        days: sys.days.map((day, idx) => {
+          if (
+            (day.id === 'day-push' || idx === 0) &&
+            day.title === 'Day 1: Chest, Shoulders & Triceps (Push)'
+          ) {
+            migrated = true;
+            return defaultDayOne;
+          }
+          return day;
+        }),
+      };
+    });
+    return { systems: updated, migrated };
+  }
+
   async loadWorkoutSystems(): Promise<WorkoutSystem[]> {
     if (!this.isBrowser) return DEFAULT_WORKOUT_SYSTEMS;
     try {
       const idbVal = await get<WorkoutSystem[]>('osama_workout_systems');
       if (idbVal && Array.isArray(idbVal) && idbVal.length > 0) {
-        return idbVal;
+        const { systems, migrated } = this.migrateDayOneIfNeeded(idbVal);
+        if (migrated) {
+          await this.saveWorkoutSystems(systems);
+        }
+        return systems;
       }
 
       const lsVal = localStorage.getItem('osama_workout_systems');
       if (lsVal) {
         const parsed = JSON.parse(lsVal);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed;
+          const { systems, migrated } = this.migrateDayOneIfNeeded(parsed);
+          if (migrated) {
+            await this.saveWorkoutSystems(systems);
+          }
+          return systems;
         }
       }
     } catch (e) {
