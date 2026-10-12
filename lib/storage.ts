@@ -131,64 +131,107 @@ export const DEFAULT_WORKOUT_SYSTEMS: WorkoutSystem[] = [
       },
       {
         id: 'day-pull',
-        title: 'Day 2: Back, Biceps & Rear Delts (Pull)',
-        description: 'V-taper lat width, rhomboid thickness, and peaked bicep growth',
+        title: 'Day 2: Arms & Shoulders Session',
+        description: 'Shoulders (Front, Lateral, Rear Delts) + Biceps & Triceps (Short/Long Heads & Brachialis)',
         order: 2,
         exercises: [
           {
-            id: 'ex-lat-pulldown',
-            name: 'Neutral-Grip Lat Pulldown',
-            category: 'back',
+            id: 'ex-machine-shoulder-press',
+            name: 'Machine Shoulder Press',
+            category: 'shoulders',
             targetSets: 3,
             targetReps: 10,
-            defaultWeight: 55,
-            notes: 'Drive elbows down into your back pockets.',
+            defaultWeight: 35,
+            notes: 'Target: Front Delts & Upper Chest • Grip: Neutral to 45-degree pronated grip (palms facing forward/slightly inward)',
             sets: [
-              { id: 'set-lp-1', setNumber: 1, weight: 55, reps: 10, completed: false },
-              { id: 'set-lp-2', setNumber: 2, weight: 55, reps: 10, completed: false },
-              { id: 'set-lp-3', setNumber: 3, weight: 55, reps: 10, completed: false },
+              { id: 'set-msp-1', setNumber: 1, weight: 35, reps: 10, completed: false },
+              { id: 'set-msp-2', setNumber: 2, weight: 35, reps: 10, completed: false },
+              { id: 'set-msp-3', setNumber: 3, weight: 35, reps: 10, completed: false },
             ],
           },
           {
-            id: 'ex-chest-supported-row',
-            name: 'Chest-Supported Dumbbell Row',
-            category: 'back',
-            targetSets: 3,
-            targetReps: 10,
-            defaultWeight: 24,
-            notes: 'Isolate back without lower back fatigue.',
+            id: 'ex-lateral-raises',
+            name: 'Dumbbell or Cable Lateral Raises',
+            category: 'shoulders',
+            targetSets: 4,
+            targetReps: 12,
+            defaultWeight: 10,
+            notes: 'Target: Side (Lateral) Delts • Grip: Neutral grip (lead with elbows, palms facing down at the top)',
             sets: [
-              { id: 'set-csr-1', setNumber: 1, weight: 24, reps: 10, completed: false },
-              { id: 'set-csr-2', setNumber: 2, weight: 24, reps: 10, completed: false },
-              { id: 'set-csr-3', setNumber: 3, weight: 24, reps: 10, completed: false },
+              { id: 'set-lr2-1', setNumber: 1, weight: 10, reps: 12, completed: false },
+              { id: 'set-lr2-2', setNumber: 2, weight: 10, reps: 12, completed: false },
+              { id: 'set-lr2-3', setNumber: 3, weight: 10, reps: 12, completed: false },
+              { id: 'set-lr2-4', setNumber: 4, weight: 10, reps: 12, completed: false },
             ],
           },
           {
-            id: 'ex-face-pull',
-            name: 'Cable Face Pull / Rear Delt Fly',
+            id: 'ex-reverse-pec-deck',
+            name: 'Reverse Pec Deck (or Cable Rear Delt Flyes)',
             category: 'shoulders',
             targetSets: 3,
             targetReps: 12,
-            defaultWeight: 15,
-            notes: 'External rotation at finish for healthy rotator cuffs.',
+            defaultWeight: 30,
+            notes: 'Target: Rear Delts • Grip: Pronated overhand grip (palms facing down/inward, driving back with elbows)',
             sets: [
-              { id: 'set-fp-1', setNumber: 1, weight: 15, reps: 12, completed: false },
-              { id: 'set-fp-2', setNumber: 2, weight: 15, reps: 12, completed: false },
-              { id: 'set-fp-3', setNumber: 3, weight: 15, reps: 12, completed: false },
+              { id: 'set-rpd-1', setNumber: 1, weight: 30, reps: 12, completed: false },
+              { id: 'set-rpd-2', setNumber: 2, weight: 30, reps: 12, completed: false },
+              { id: 'set-rpd-3', setNumber: 3, weight: 30, reps: 12, completed: false },
             ],
           },
           {
-            id: 'ex-incline-curl',
-            name: 'Incline Dumbbell Bicep Curl',
+            id: 'ex-cable-preacher-curl',
+            name: 'Cable Preacher Curls (EZ / Zigzag Bar)',
             category: 'arms',
             targetSets: 3,
             targetReps: 10,
-            defaultWeight: 12.5,
-            notes: 'Max stretch on bicep long head, supinate wrist at top.',
+            defaultWeight: 20,
+            notes: 'Target: Bicep Short Head & Overall Peak • Grip: Underhand supinated grip on the angled curves of the bar',
             sets: [
-              { id: 'set-ic-1', setNumber: 1, weight: 12.5, reps: 10, completed: false },
-              { id: 'set-ic-2', setNumber: 2, weight: 12.5, reps: 10, completed: false },
-              { id: 'set-ic-3', setNumber: 3, weight: 12.5, reps: 10, completed: false },
+              { id: 'set-cpc-1', setNumber: 1, weight: 20, reps: 10, completed: false },
+              { id: 'set-cpc-2', setNumber: 2, weight: 20, reps: 10, completed: false },
+              { id: 'set-cpc-3', setNumber: 3, weight: 20, reps: 10, completed: false },
+            ],
+          },
+          {
+            id: 'ex-rope-cable-curls',
+            name: 'Rope Cable Curls',
+            category: 'arms',
+            targetSets: 3,
+            targetReps: 12,
+            defaultWeight: 17.5,
+            notes: 'Target: Brachialis & Forearm Thickness • Grip: Neutral grip (palms facing each other, flaring slightly out at the top)',
+            sets: [
+              { id: 'set-rcc-1', setNumber: 1, weight: 17.5, reps: 12, completed: false },
+              { id: 'set-rcc-2', setNumber: 2, weight: 17.5, reps: 12, completed: false },
+              { id: 'set-rcc-3', setNumber: 3, weight: 17.5, reps: 12, completed: false },
+            ],
+          },
+          {
+            id: 'ex-rope-tricep-pushdown',
+            name: 'Rope Cable Tricep Pushdowns',
+            category: 'arms',
+            targetSets: 3,
+            targetReps: 12,
+            defaultWeight: 20,
+            notes: 'Target: Lateral & Medial Heads • Grip: Neutral grip on the rope, locking out and pulling hands apart at the bottom',
+            sets: [
+              { id: 'set-rtp-1', setNumber: 1, weight: 20, reps: 12, completed: false },
+              { id: 'set-rtp-2', setNumber: 2, weight: 20, reps: 12, completed: false },
+              { id: 'set-rtp-3', setNumber: 3, weight: 20, reps: 12, completed: false },
+            ],
+          },
+          {
+            id: 'ex-overhead-cable-tricep-ext',
+            name: 'Overhead Cable Tricep Extensions (Rope or Bar)',
+            category: 'arms',
+            targetSets: 3,
+            targetReps: 12,
+            defaultWeight: 17.5,
+            notes: 'Target: Tricep Long Head (Back of the arm) • Grip: Neutral grip (rope) or overhand grip (bar), pulling overhead with elbows tucked in',
+            sets: [
+              { id: 'set-octe-1', setNumber: 1, weight: 17.5, reps: 12, completed: false },
+              { id: 'set-octe-2', setNumber: 2, weight: 17.5, reps: 12, completed: false },
+              { id: 'set-octe-3', setNumber: 3, weight: 17.5, reps: 12, completed: false },
             ],
           },
         ],
@@ -761,9 +804,10 @@ class LocalGymDatabase {
     }));
   }
 
-  private migrateDayOneIfNeeded(systems: WorkoutSystem[]): { systems: WorkoutSystem[]; migrated: boolean } {
+  private migrateDaysIfNeeded(systems: WorkoutSystem[]): { systems: WorkoutSystem[]; migrated: boolean } {
     let migrated = false;
     const defaultDayOne = DEFAULT_WORKOUT_SYSTEMS[0].days[0];
+    const defaultDayTwo = DEFAULT_WORKOUT_SYSTEMS[0].days[1];
     const updated = systems.map((sys) => {
       if (sys.id !== 'system-aesthetic-4day') return sys;
       return {
@@ -775,6 +819,13 @@ class LocalGymDatabase {
           ) {
             migrated = true;
             return defaultDayOne;
+          }
+          if (
+            (day.id === 'day-pull' || idx === 1) &&
+            (day.title === 'Day 2: Back, Biceps & Rear Delts (Pull)' || day.title.toLowerCase().includes('back, biceps'))
+          ) {
+            migrated = true;
+            return defaultDayTwo;
           }
           return day;
         }),
@@ -788,7 +839,7 @@ class LocalGymDatabase {
     try {
       const idbVal = await get<WorkoutSystem[]>('osama_workout_systems');
       if (idbVal && Array.isArray(idbVal) && idbVal.length > 0) {
-        const { systems, migrated } = this.migrateDayOneIfNeeded(idbVal);
+        const { systems, migrated } = this.migrateDaysIfNeeded(idbVal);
         if (migrated) {
           await this.saveWorkoutSystems(systems);
         }
@@ -799,7 +850,7 @@ class LocalGymDatabase {
       if (lsVal) {
         const parsed = JSON.parse(lsVal);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          const { systems, migrated } = this.migrateDayOneIfNeeded(parsed);
+          const { systems, migrated } = this.migrateDaysIfNeeded(parsed);
           if (migrated) {
             await this.saveWorkoutSystems(systems);
           }
