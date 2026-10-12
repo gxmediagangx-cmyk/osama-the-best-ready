@@ -238,65 +238,121 @@ export const DEFAULT_WORKOUT_SYSTEMS: WorkoutSystem[] = [
       },
       {
         id: 'day-legs',
-        title: 'Day 3: Quads, Hamstrings & Calves (Legs)',
-        description: 'Athletic foundation, quad sweep, and hamstring development',
+        title: 'Day 3: Legs & Abs',
+        description: 'Quad Isolation & Mass, Hamstring Development, Soleus Calves & Complete Core Routine',
         order: 3,
         exercises: [
           {
-            id: 'ex-hack-squat',
-            name: 'Hack Squat / Leg Press',
-            category: 'legs',
-            targetSets: 3,
-            targetReps: 10,
-            defaultWeight: 90,
-            notes: 'Deep knee flexion, push through mid-foot.',
-            sets: [
-              { id: 'set-hs-1', setNumber: 1, weight: 90, reps: 10, completed: false },
-              { id: 'set-hs-2', setNumber: 2, weight: 90, reps: 10, completed: false },
-              { id: 'set-hs-3', setNumber: 3, weight: 90, reps: 10, completed: false },
-            ],
-          },
-          {
-            id: 'ex-rdl',
-            name: 'Dumbbell Romanian Deadlift (RDL)',
-            category: 'legs',
-            targetSets: 3,
-            targetReps: 10,
-            defaultWeight: 28,
-            notes: 'Hips back, feel hamstring stretch, keep spine neutral.',
-            sets: [
-              { id: 'set-rdl-1', setNumber: 1, weight: 28, reps: 10, completed: false },
-              { id: 'set-rdl-2', setNumber: 2, weight: 28, reps: 10, completed: false },
-              { id: 'set-rdl-3', setNumber: 3, weight: 28, reps: 10, completed: false },
-            ],
-          },
-          {
-            id: 'ex-leg-curl',
-            name: 'Seated Leg Curl',
+            id: 'ex-leg-extensions',
+            name: 'Leg Extensions',
             category: 'legs',
             targetSets: 3,
             targetReps: 12,
             defaultWeight: 45,
-            notes: 'Lean forward slightly for improved stretch.',
+            notes: 'Target: Quad Isolation / Warm-up • Position: Pad on lower shins, toes pointing straight ahead',
             sets: [
-              { id: 'set-lc-1', setNumber: 1, weight: 45, reps: 12, completed: false },
-              { id: 'set-lc-2', setNumber: 2, weight: 45, reps: 12, completed: false },
-              { id: 'set-lc-3', setNumber: 3, weight: 45, reps: 12, completed: false },
+              { id: 'set-le-1', setNumber: 1, weight: 45, reps: 12, completed: false },
+              { id: 'set-le-2', setNumber: 2, weight: 45, reps: 12, completed: false },
+              { id: 'set-le-3', setNumber: 3, weight: 45, reps: 12, completed: false },
             ],
           },
           {
-            id: 'ex-calves',
-            name: 'Standing Calf Raise',
+            id: 'ex-leg-press',
+            name: 'Leg Press',
             category: 'legs',
-            targetSets: 4,
+            targetSets: 3,
+            targetReps: 10,
+            defaultWeight: 120,
+            notes: 'Target: Overall Quads & Glutes • Position: Foot placement shoulder-width on middle of footplate',
+            sets: [
+              { id: 'set-lp-1', setNumber: 1, weight: 120, reps: 10, completed: false },
+              { id: 'set-lp-2', setNumber: 2, weight: 120, reps: 10, completed: false },
+              { id: 'set-lp-3', setNumber: 3, weight: 120, reps: 10, completed: false },
+            ],
+          },
+          {
+            id: 'ex-lying-leg-curls',
+            name: 'Lying Leg Curls',
+            category: 'legs',
+            targetSets: 3,
             targetReps: 12,
             defaultWeight: 40,
-            notes: '2-second dead pause at bottom stretch, no bouncing.',
+            notes: 'Target: Hamstrings (Biceps Femoris) • Position: Pad on lower calves/Achilles, hips pinned to bench',
             sets: [
-              { id: 'set-cr-1', setNumber: 1, weight: 40, reps: 12, completed: false },
-              { id: 'set-cr-2', setNumber: 2, weight: 40, reps: 12, completed: false },
-              { id: 'set-cr-3', setNumber: 3, weight: 40, reps: 12, completed: false },
-              { id: 'set-cr-4', setNumber: 4, weight: 40, reps: 12, completed: false },
+              { id: 'set-llc-1', setNumber: 1, weight: 40, reps: 12, completed: false },
+              { id: 'set-llc-2', setNumber: 2, weight: 40, reps: 12, completed: false },
+              { id: 'set-llc-3', setNumber: 3, weight: 40, reps: 12, completed: false },
+            ],
+          },
+          {
+            id: 'ex-barbell-rdl',
+            name: 'Barbell Romanian Deadlifts (RDLs)',
+            category: 'legs',
+            targetSets: 3,
+            targetReps: 10,
+            defaultWeight: 60,
+            notes: 'Target: Hamstrings & Glute Tie-in • Grip: Pronated overhand grip (slightly wider than shoulder-width)',
+            sets: [
+              { id: 'set-brdl-1', setNumber: 1, weight: 60, reps: 10, completed: false },
+              { id: 'set-brdl-2', setNumber: 2, weight: 60, reps: 10, completed: false },
+              { id: 'set-brdl-3', setNumber: 3, weight: 60, reps: 10, completed: false },
+            ],
+          },
+          {
+            id: 'ex-seated-calf-raise',
+            name: 'Seated Calf Raise',
+            category: 'legs',
+            targetSets: 4,
+            targetReps: 15,
+            defaultWeight: 35,
+            notes: 'Target: Soleus / Calf Thickness • Position: Pad secured over lower thighs/knees, balls of feet on platform',
+            sets: [
+              { id: 'set-scr-1', setNumber: 1, weight: 35, reps: 15, completed: false },
+              { id: 'set-scr-2', setNumber: 2, weight: 35, reps: 15, completed: false },
+              { id: 'set-scr-3', setNumber: 3, weight: 35, reps: 15, completed: false },
+              { id: 'set-scr-4', setNumber: 4, weight: 35, reps: 15, completed: false },
+            ],
+          },
+          {
+            id: 'ex-seated-cable-crunches',
+            name: 'Seated Cable Crunches',
+            category: 'core',
+            targetSets: 3,
+            targetReps: 15,
+            defaultWeight: 30,
+            notes: 'Target: Upper & Mid Abs • Grip: Neutral grip holding rope at ears while seated on bench/chair',
+            sets: [
+              { id: 'set-scc-1', setNumber: 1, weight: 30, reps: 15, completed: false },
+              { id: 'set-scc-2', setNumber: 2, weight: 30, reps: 15, completed: false },
+              { id: 'set-scc-3', setNumber: 3, weight: 30, reps: 15, completed: false },
+            ],
+          },
+          {
+            id: 'ex-weighted-crunches-chair',
+            name: 'Weighted Crunches on the Chair',
+            category: 'core',
+            targetSets: 3,
+            targetReps: 15,
+            defaultWeight: 10,
+            notes: 'Target: Core Mass & Upper Abs • Position: Holding weight plate flat across your chest on the decline bench/chair',
+            sets: [
+              { id: 'set-wcc-1', setNumber: 1, weight: 10, reps: 15, completed: false },
+              { id: 'set-wcc-2', setNumber: 2, weight: 10, reps: 15, completed: false },
+              { id: 'set-wcc-3', setNumber: 3, weight: 10, reps: 15, completed: false },
+            ],
+          },
+          {
+            id: 'ex-leg-raises',
+            name: 'Leg Raises',
+            category: 'core',
+            targetSets: 3,
+            targetReps: 15,
+            defaultWeight: 0,
+            notes: "Target: Lower Abs • Grip: Forearms supported on Captain's Chair pads or hanging overhand grip",
+            sets: [
+              { id: 'set-lr-1', setNumber: 1, weight: 0, reps: 15, completed: false },
+              { id: 'set-lr-2', setNumber: 2, weight: 0, reps: 15, completed: false },
+              { id: 'set-lr-3', setNumber: 3, weight: 0, reps: 15, completed: false },
             ],
           },
         ],
@@ -808,6 +864,7 @@ class LocalGymDatabase {
     let migrated = false;
     const defaultDayOne = DEFAULT_WORKOUT_SYSTEMS[0].days[0];
     const defaultDayTwo = DEFAULT_WORKOUT_SYSTEMS[0].days[1];
+    const defaultDayThree = DEFAULT_WORKOUT_SYSTEMS[0].days[2];
     const updated = systems.map((sys) => {
       if (sys.id !== 'system-aesthetic-4day') return sys;
       return {
@@ -826,6 +883,13 @@ class LocalGymDatabase {
           ) {
             migrated = true;
             return defaultDayTwo;
+          }
+          if (
+            (day.id === 'day-legs' || idx === 2) &&
+            (day.title === 'Day 3: Quads, Hamstrings & Calves (Legs)' || !day.title.toLowerCase().includes('legs & abs'))
+          ) {
+            migrated = true;
+            return defaultDayThree;
           }
           return day;
         }),
