@@ -38,9 +38,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full overflow-hidden bg-[#16161c] border border-[#d4b26f]/40 shadow-sm">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/pwa-192x192.png"
+              src="/app-avatar.jpg"
               alt="Osama The Best"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-top"
+              referrerPolicy="no-referrer"
             />
           </div>
 

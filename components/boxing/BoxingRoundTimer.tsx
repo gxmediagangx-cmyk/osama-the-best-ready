@@ -140,14 +140,19 @@ export const BoxingRoundTimer: React.FC<BoxingRoundTimerProps> = ({
     activeDrillId,
   ]);
 
-  // Sync defaults when workout changes
-  useEffect(() => {
-    setRoundDuration(defaultRoundSeconds);
-  }, [defaultRoundSeconds]);
+  const [prevDefaultRoundSeconds, setPrevDefaultRoundSeconds] = useState(defaultRoundSeconds);
+  const [prevDefaultRestSeconds, setPrevDefaultRestSeconds] = useState(defaultRestSeconds);
 
-  useEffect(() => {
+  // Sync defaults when workout changes (React recommended pattern)
+  if (prevDefaultRoundSeconds !== defaultRoundSeconds) {
+    setPrevDefaultRoundSeconds(defaultRoundSeconds);
+    setRoundDuration(defaultRoundSeconds);
+  }
+
+  if (prevDefaultRestSeconds !== defaultRestSeconds) {
+    setPrevDefaultRestSeconds(defaultRestSeconds);
     setRestDuration(defaultRestSeconds);
-  }, [defaultRestSeconds]);
+  }
 
   // Broadcast live timer state so the active BoxingDrillCard can render an inline live timer right on the card!
   useEffect(() => {

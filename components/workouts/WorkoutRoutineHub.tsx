@@ -85,6 +85,37 @@ export const WorkoutRoutineHub: React.FC<WorkoutRoutineHubProps> = ({
 
   return (
     <div className="space-y-4 pb-32">
+      {/* App Cover Banner Hero */}
+      <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121217] shadow-xl group">
+        <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/app-cover.jpg"
+            alt="Osama The Best Cover"
+            className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#121217] via-[#121217]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+
+          <div className="absolute bottom-3 left-3.5 right-3.5 flex items-end justify-between gap-2">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-md bg-[#d4b26f]/20 border border-[#d4b26f]/40 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#eed891] backdrop-blur-md">
+                Aesthetic Protocol
+              </span>
+              <h2 className="text-lg sm:text-xl font-black tracking-tight text-white drop-shadow-md mt-1">
+                Osama The Best
+              </h2>
+            </div>
+            <div className="text-right">
+              <span className="inline-block rounded-lg bg-black/60 backdrop-blur-md border border-white/10 px-2 py-1 text-[11px] font-bold text-zinc-300 drop-shadow">
+                {currentSystem.days.length} Days Split
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Program Selector Card */}
       <div className="rounded-2xl border border-white/[0.08] bg-[#121217] p-4 sm:p-5 shadow-sm">
         <span className="text-xs font-extrabold uppercase tracking-wider text-[#d4b26f] block">

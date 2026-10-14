@@ -359,64 +359,92 @@ export const DEFAULT_WORKOUT_SYSTEMS: WorkoutSystem[] = [
       },
       {
         id: 'day-arms-abs',
-        title: 'Day 4: Shoulders, Arms & Abs Specialization',
-        description: 'Detail day to cap off shoulders and build aesthetic arms & core',
+        title: 'Day 4: Chest & Back (Wednesday Session)',
+        description: 'Strict 3-second negative phase on presses/rows with 1-second pause at deep stretch / peak squeeze',
         order: 4,
         exercises: [
           {
-            id: 'ex-seated-db-press',
-            name: 'Seated Dumbbell Shoulder Press',
-            category: 'shoulders',
+            id: 'ex-d4-incline-db-press',
+            name: 'Incline Dumbbell Press',
+            category: 'chest',
             targetSets: 3,
             targetReps: 10,
             defaultWeight: 22,
-            notes: 'Elbows slightly tucked forward, full range of motion.',
+            notes: 'Target: Upper Chest • Grip/Setup: Neutral to 45-degree pronated grip • Execution Cue: 3-second slow descent, light pause at the bottom stretch.',
             sets: [
-              { id: 'set-sp-1', setNumber: 1, weight: 22, reps: 10, completed: false },
-              { id: 'set-sp-2', setNumber: 2, weight: 22, reps: 10, completed: false },
-              { id: 'set-sp-3', setNumber: 3, weight: 22, reps: 10, completed: false },
+              { id: 'set-d4-idp-1', setNumber: 1, weight: 22, reps: 10, completed: false },
+              { id: 'set-d4-idp-2', setNumber: 2, weight: 22, reps: 10, completed: false },
+              { id: 'set-d4-idp-3', setNumber: 3, weight: 22, reps: 10, completed: false },
             ],
           },
           {
-            id: 'ex-hammer-curl',
-            name: 'Dumbbell Hammer Curls',
-            category: 'arms',
+            id: 'ex-d4-lat-pulldown',
+            name: 'Lat Pulldown',
+            category: 'back',
             targetSets: 3,
             targetReps: 10,
-            defaultWeight: 14,
-            notes: 'Targets brachialis for thicker upper arm profile.',
+            defaultWeight: 50,
+            notes: 'Target: Lat Width • Grip/Setup: Medium overhand grip • Execution Cue: Pull down to upper chest, control the weight back up slowly.',
             sets: [
-              { id: 'set-hc-1', setNumber: 1, weight: 14, reps: 10, completed: false },
-              { id: 'set-hc-2', setNumber: 2, weight: 14, reps: 10, completed: false },
-              { id: 'set-hc-3', setNumber: 3, weight: 14, reps: 10, completed: false },
+              { id: 'set-d4-lp-1', setNumber: 1, weight: 50, reps: 10, completed: false },
+              { id: 'set-d4-lp-2', setNumber: 2, weight: 50, reps: 10, completed: false },
+              { id: 'set-d4-lp-3', setNumber: 3, weight: 50, reps: 10, completed: false },
             ],
           },
           {
-            id: 'ex-dip-or-skull',
-            name: 'Cable Triceps Pushdown (Straight Bar)',
-            category: 'arms',
+            id: 'ex-d4-flat-bench-press',
+            name: 'Flat Bench Press',
+            category: 'chest',
+            targetSets: 3,
+            targetReps: 10,
+            defaultWeight: 50,
+            notes: 'Target: Mid Chest / Overall Mass • Grip/Setup: Pronated overhand grip • Execution Cue: Elbows tucked at 45 degrees, controlled touch on the chest.',
+            sets: [
+              { id: 'set-d4-fbp-1', setNumber: 1, weight: 50, reps: 10, completed: false },
+              { id: 'set-d4-fbp-2', setNumber: 2, weight: 50, reps: 10, completed: false },
+              { id: 'set-d4-fbp-3', setNumber: 3, weight: 50, reps: 10, completed: false },
+            ],
+          },
+          {
+            id: 'ex-d4-cable-row-close',
+            name: 'Seated Cable Row (Close Grip)',
+            category: 'back',
+            targetSets: 3,
+            targetReps: 10,
+            defaultWeight: 45,
+            notes: 'Target: Mid-Back Thickness • Grip/Setup: Neutral grip (V-bar) • Execution Cue: Keep torso stable, squeeze shoulder blades together at the back.',
+            sets: [
+              { id: 'set-d4-src-1', setNumber: 1, weight: 45, reps: 10, completed: false },
+              { id: 'set-d4-src-2', setNumber: 2, weight: 45, reps: 10, completed: false },
+              { id: 'set-d4-src-3', setNumber: 3, weight: 45, reps: 10, completed: false },
+            ],
+          },
+          {
+            id: 'ex-d4-pec-deck',
+            name: 'Butterfly Machine (Pec Deck)',
+            category: 'chest',
             targetSets: 3,
             targetReps: 12,
-            defaultWeight: 22.5,
-            notes: 'Lock elbows to ribs, squeeze triceps hard.',
+            defaultWeight: 40,
+            notes: 'Target: Inner Chest / Isolation • Grip/Setup: Neutral grip / forearm pads • Execution Cue: Hold the squeezed contraction in the center for a full second.',
             sets: [
-              { id: 'set-tpb-1', setNumber: 1, weight: 22.5, reps: 12, completed: false },
-              { id: 'set-tpb-2', setNumber: 2, weight: 22.5, reps: 12, completed: false },
-              { id: 'set-tpb-3', setNumber: 3, weight: 22.5, reps: 12, completed: false },
+              { id: 'set-d4-bm-1', setNumber: 1, weight: 40, reps: 12, completed: false },
+              { id: 'set-d4-bm-2', setNumber: 2, weight: 40, reps: 12, completed: false },
+              { id: 'set-d4-bm-3', setNumber: 3, weight: 40, reps: 12, completed: false },
             ],
           },
           {
-            id: 'ex-hanging-leg-raise',
-            name: 'Hanging Leg Raise / Cable Crunch',
-            category: 'core',
+            id: 'ex-d4-cable-row-wide',
+            name: 'Seated Cable Row (Wide Grip)',
+            category: 'back',
             targetSets: 3,
-            targetReps: 15,
-            defaultWeight: 0,
-            notes: 'Curl pelvis up towards chest, don’t just swing legs.',
+            targetReps: 12,
+            defaultWeight: 40,
+            notes: 'Target: Upper Back & Rhomboids • Grip/Setup: Wide pronated overhand grip • Execution Cue: Flare elbows slightly higher to target the upper back and rear delts.',
             sets: [
-              { id: 'set-hlr-1', setNumber: 1, weight: 0, reps: 15, completed: false },
-              { id: 'set-hlr-2', setNumber: 2, weight: 0, reps: 15, completed: false },
-              { id: 'set-hlr-3', setNumber: 3, weight: 0, reps: 15, completed: false },
+              { id: 'set-d4-srw-1', setNumber: 1, weight: 40, reps: 12, completed: false },
+              { id: 'set-d4-srw-2', setNumber: 2, weight: 40, reps: 12, completed: false },
+              { id: 'set-d4-srw-3', setNumber: 3, weight: 40, reps: 12, completed: false },
             ],
           },
         ],
@@ -865,6 +893,7 @@ class LocalGymDatabase {
     const defaultDayOne = DEFAULT_WORKOUT_SYSTEMS[0].days[0];
     const defaultDayTwo = DEFAULT_WORKOUT_SYSTEMS[0].days[1];
     const defaultDayThree = DEFAULT_WORKOUT_SYSTEMS[0].days[2];
+    const defaultDayFour = DEFAULT_WORKOUT_SYSTEMS[0].days[3];
     const updated = systems.map((sys) => {
       if (sys.id !== 'system-aesthetic-4day') return sys;
       return {
@@ -890,6 +919,13 @@ class LocalGymDatabase {
           ) {
             migrated = true;
             return defaultDayThree;
+          }
+          if (
+            (day.id === 'day-arms-abs' || idx === 3) &&
+            (day.title === 'Day 4: Shoulders, Arms & Abs Specialization' || !day.title.toLowerCase().includes('chest & back'))
+          ) {
+            migrated = true;
+            return defaultDayFour;
           }
           return day;
         }),

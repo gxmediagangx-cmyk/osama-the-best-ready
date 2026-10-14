@@ -49,14 +49,19 @@ export const RestTimer: React.FC<RestTimerProps> = ({
   const [exercisesRestVal, setExercisesRestVal] = useState(restBetweenExercisesSeconds);
   const [savedBanner, setSavedBanner] = useState(false);
 
-  // Keep local values synced if updated from Settings tab
-  useEffect(() => {
-    setSetsRestVal(restBetweenSetsSeconds);
-  }, [restBetweenSetsSeconds]);
+  const [prevSetsRest, setPrevSetsRest] = useState(restBetweenSetsSeconds);
+  const [prevExercisesRest, setPrevExercisesRest] = useState(restBetweenExercisesSeconds);
 
-  useEffect(() => {
+  // Keep local values synced if updated from Settings tab (React recommended pattern)
+  if (prevSetsRest !== restBetweenSetsSeconds) {
+    setPrevSetsRest(restBetweenSetsSeconds);
+    setSetsRestVal(restBetweenSetsSeconds);
+  }
+
+  if (prevExercisesRest !== restBetweenExercisesSeconds) {
+    setPrevExercisesRest(restBetweenExercisesSeconds);
     setExercisesRestVal(restBetweenExercisesSeconds);
-  }, [restBetweenExercisesSeconds]);
+  }
 
   // Handle auto-trigger from completing a set or exercise
   useEffect(() => {

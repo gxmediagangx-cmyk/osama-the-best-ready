@@ -31,11 +31,20 @@ export const metadata: Metadata = {
     title: 'Osama The Best',
     description: 'Osama The Best — Private offline-first workout, boxing, and nutrition system.',
     type: 'website',
+    images: [
+      {
+        url: '/app-cover.jpg',
+        width: 1280,
+        height: 720,
+        alt: 'Osama The Best Cover',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Osama The Best',
     description: 'Osama The Best — Private offline-first workout, boxing, and nutrition system.',
+    images: ['/app-cover.jpg'],
   },
 };
 
