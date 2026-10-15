@@ -145,6 +145,21 @@ export const WorkoutSystemView: React.FC<WorkoutSystemViewProps> = ({
     onUpdateSystems(updatedSystems);
   };
 
+  const handleRenameActiveDay = (newTitle: string) => {
+    if (!activeDay || !newTitle.trim()) return;
+    const updatedDays = currentSystem.days.map((d) => {
+      if (d.id === activeDay.id) {
+        return { ...d, title: newTitle.trim() };
+      }
+      return d;
+    });
+
+    const updatedSystems = systems.map((s) =>
+      s.id === currentSystem.id ? { ...s, days: updatedDays } : s
+    );
+    onUpdateSystems(updatedSystems);
+  };
+
   // If in an active session, render the dedicated ActiveWorkoutSession screen
   if (activeDay) {
     return (
@@ -156,6 +171,7 @@ export const WorkoutSystemView: React.FC<WorkoutSystemViewProps> = ({
           setActiveDayId(null);
           if (typeof window !== 'undefined') window.scrollTo({ top: 0 });
         }}
+        onRenameDay={handleRenameActiveDay}
         onUpdateExercise={handleUpdateExercise}
         onDeleteExercise={handleDeleteExercise}
         onAddExercise={handleAddExercise}

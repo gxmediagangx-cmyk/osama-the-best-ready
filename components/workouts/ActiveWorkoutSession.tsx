@@ -17,6 +17,9 @@ import {
   RotateCcw,
   Trophy,
   Timer,
+  Pencil,
+  Check,
+  X,
 } from 'lucide-react';
 import { soundManager } from '@/lib/sound';
 
@@ -25,6 +28,7 @@ interface ActiveWorkoutSessionProps {
   day: WorkoutDay;
   settings: AppSettings;
   onExit: () => void;
+  onRenameDay?: (newTitle: string) => void;
   onUpdateExercise: (exercise: Exercise) => void;
   onDeleteExercise: (exerciseId: string) => void;
   onAddExercise: (newEx: Exercise) => void;
@@ -40,6 +44,7 @@ export const ActiveWorkoutSession: React.FC<ActiveWorkoutSessionProps> = ({
   day,
   settings,
   onExit,
+  onRenameDay,
   onUpdateExercise,
   onDeleteExercise,
   onAddExercise,
@@ -53,6 +58,8 @@ export const ActiveWorkoutSession: React.FC<ActiveWorkoutSessionProps> = ({
   const [showSessionCompleteDialog, setShowSessionCompleteDialog] = useState(false);
   const [sessionNotes, setSessionNotes] = useState('');
   const [sessionDurationMinutes, setSessionDurationMinutes] = useState(50);
+  const [isRenamingDay, setIsRenamingDay] = useState(false);
+  const [dayTitleInput, setDayTitleInput] = useState(day.title);
 
   const unit = settings.weightUnit;
 
@@ -178,13 +185,74 @@ export const ActiveWorkoutSession: React.FC<ActiveWorkoutSessionProps> = ({
       {/* Day Overview Telemetry Card */}
       <div className="rounded-2xl border border-white/[0.07] bg-[#121217] p-4 shadow-sm">
         <div className="flex items-start justify-between gap-3">
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <div className="text-[11px] font-bold uppercase tracking-wider text-[#d4b26f]">
               Active Workout
             </div>
-            <h1 className="text-base sm:text-lg font-extrabold tracking-tight text-white mt-0.5 leading-snug">
-              {day.title}
-            </h1>
+            {isRenamingDay ? (
+              <div className="mt-1 flex items-center gap-1.5 max-w-sm">
+                <input
+                  type="text"
+                  value={dayTitleInput}
+                  onChange={(e) => setDayTitleInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      if (dayTitleInput.trim() && onRenameDay) {
+                        onRenameDay(dayTitleInput.trim());
+                        soundManager.playClickPop();
+                      }
+                      setIsRenamingDay(false);
+                    } else if (e.key === 'Escape') {
+                      setIsRenamingDay(false);
+                    }
+                  }}
+                  autoFocus
+                  placeholder="Day title..."
+                  className="w-full rounded-xl border border-[#d4b26f] bg-black/80 px-2.5 py-1 text-xs sm:text-sm font-bold text-white focus:outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (dayTitleInput.trim() && onRenameDay) {
+                      onRenameDay(dayTitleInput.trim());
+                      soundManager.playClickPop();
+                    }
+                    setIsRenamingDay(false);
+                  }}
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#d4b26f] text-black hover:bg-[#e2c487]"
+                  title="Save title"
+                >
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsRenamingDay(false)}
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-800 text-zinc-300 hover:text-white"
+                  title="Cancel"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                <h1 className="text-base sm:text-lg font-extrabold tracking-tight text-white leading-snug">
+                  {day.title}
+                </h1>
+                {onRenameDay && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDayTitleInput(day.title);
+                      setIsRenamingDay(true);
+                    }}
+                    className="p-1 rounded-md text-zinc-500 hover:text-[#eed891] hover:bg-white/5 transition"
+                    title="Rename workout day"
+                  >
+                    <Pencil className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="text-right shrink-0">

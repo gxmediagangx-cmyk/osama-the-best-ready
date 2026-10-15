@@ -908,21 +908,21 @@ class LocalGymDatabase {
           }
           if (
             (day.id === 'day-pull' || idx === 1) &&
-            (day.title === 'Day 2: Back, Biceps & Rear Delts (Pull)' || day.title.toLowerCase().includes('back, biceps'))
+            (day.title === 'Day 2: Back, Biceps & Rear Delts (Pull)' || day.title === 'Day 2: Back & Biceps')
           ) {
             migrated = true;
             return defaultDayTwo;
           }
           if (
             (day.id === 'day-legs' || idx === 2) &&
-            (day.title === 'Day 3: Quads, Hamstrings & Calves (Legs)' || !day.title.toLowerCase().includes('legs & abs'))
+            day.title === 'Day 3: Quads, Hamstrings & Calves (Legs)'
           ) {
             migrated = true;
             return defaultDayThree;
           }
           if (
             (day.id === 'day-arms-abs' || idx === 3) &&
-            (day.title === 'Day 4: Shoulders, Arms & Abs Specialization' || !day.title.toLowerCase().includes('chest & back'))
+            day.title === 'Day 4: Shoulders, Arms & Abs Specialization'
           ) {
             migrated = true;
             return defaultDayFour;

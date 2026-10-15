@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, Plus, Layers, Trash2, ArrowUp, ArrowDown } from 'lucide-react';
+import { X, Plus, Layers, Trash2, ArrowUp, ArrowDown, Pencil, Check } from 'lucide-react';
 import { WorkoutDay, WorkoutSystem } from '@/lib/types';
 import { soundManager } from '@/lib/sound';
 
@@ -24,8 +24,27 @@ export const SystemEditorModal: React.FC<SystemEditorModalProps> = ({
   const [description, setDescription] = useState(system.description);
   const [days, setDays] = useState<WorkoutDay[]>(system.days);
   const [newDayTitle, setNewDayTitle] = useState('');
+  const [editingDayId, setEditingDayId] = useState<string | null>(null);
+  const [editingDayTitle, setEditingDayTitle] = useState('');
 
   if (!isOpen) return null;
+
+  const handleStartRename = (day: WorkoutDay) => {
+    setEditingDayId(day.id);
+    setEditingDayTitle(day.title);
+  };
+
+  const handleSaveRenameDay = (dayId: string) => {
+    if (!editingDayTitle.trim()) {
+      setEditingDayId(null);
+      return;
+    }
+    setDays((prev) =>
+      prev.map((d) => (d.id === dayId ? { ...d, title: editingDayTitle.trim() } : d))
+    );
+    setEditingDayId(null);
+    soundManager.playClickPop();
+  };
 
   const handleAddDay = (e: React.FormEvent) => {
     e.preventDefault();
@@ -120,16 +139,77 @@ export const SystemEditorModal: React.FC<SystemEditorModalProps> = ({
                   key={d.id}
                   className="flex items-center justify-between gap-2 rounded-xl border border-white/[0.08] bg-[#181822] p-3"
                 >
-                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#121217] font-mono text-xs font-bold text-[#d4b26f]">
-                      {idx + 1}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <h4 className="text-sm font-bold text-white truncate">{d.title}</h4>
-                      <p className="text-xs text-zinc-400">{d.exercises.length} exercises configured</p>
+                  {editingDayId === d.id ? (
+                    <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#121217] font-mono text-xs font-bold text-[#d4b26f]">
+                        {idx + 1}
+                      </span>
+                      <input
+                        type="text"
+                        value={editingDayTitle}
+                        onChange={(e) => setEditingDayTitle(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleSaveRenameDay(d.id);
+                          } else if (e.key === 'Escape') {
+                            setEditingDayId(null);
+                          }
+                        }}
+                        autoFocus
+                        placeholder="Day title..."
+                        className="flex-1 rounded-lg border border-[#d4b26f] bg-zinc-950 px-2.5 py-1.5 text-xs sm:text-sm font-semibold text-white focus:outline-none"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => handleSaveRenameDay(d.id)}
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#d4b26f] text-black hover:bg-[#e2c487] transition active:scale-95"
+                        title="Save name"
+                      >
+                        <Check className="w-4 h-4 stroke-[3]" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setEditingDayId(null)}
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-800 text-zinc-300 hover:text-white transition"
+                        title="Cancel"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#121217] font-mono text-xs font-bold text-[#d4b26f]">
+                        {idx + 1}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <h4 className="text-sm font-bold text-white truncate">{d.title}</h4>
+                          <button
+                            type="button"
+                            onClick={() => handleStartRename(d)}
+                            className="p-1 text-zinc-400 hover:text-[#eed891] hover:bg-white/5 rounded transition"
+                            title="Rename day"
+                          >
+                            <Pencil className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                        <p className="text-xs text-zinc-400">{d.exercises.length} exercises configured</p>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="flex items-center gap-1 shrink-0">
+                    {editingDayId !== d.id && (
+                      <button
+                        type="button"
+                        onClick={() => handleStartRename(d)}
+                        className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-[#121217] text-zinc-300 hover:text-[#eed891] hover:border-[#d4b26f]/40 transition"
+                        title="Rename day"
+                      >
+                        <Pencil className="w-3.5 h-3.5" />
+                      </button>
+                    )}
                     {days.length > 1 && (
                       <>
                         <button

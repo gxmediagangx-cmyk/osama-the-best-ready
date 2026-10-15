@@ -15,6 +15,9 @@ import {
   ChevronRight,
   ArrowUp,
   ArrowDown,
+  Pencil,
+  Check,
+  X,
 } from 'lucide-react';
 import { formatSafeDate } from '@/lib/utils';
 import { soundManager } from '@/lib/sound';
@@ -39,10 +42,33 @@ export const WorkoutRoutineHub: React.FC<WorkoutRoutineHubProps> = ({
   const [isSystemEditorOpen, setIsSystemEditorOpen] = useState(false);
   const [isProgramPickerOpen, setIsProgramPickerOpen] = useState(false);
   const [expandedDayId, setExpandedDayId] = useState<string | null>(null);
+  const [editingDayId, setEditingDayId] = useState<string | null>(null);
+  const [renameTitle, setRenameTitle] = useState('');
 
   if (!currentSystem) {
     return <div className="p-8 text-center text-zinc-500">No workout systems found.</div>;
   }
+
+  const handleStartRename = (day: WorkoutDay) => {
+    setEditingDayId(day.id);
+    setRenameTitle(day.title);
+  };
+
+  const handleSaveRename = (dayId: string) => {
+    if (!renameTitle.trim()) {
+      setEditingDayId(null);
+      return;
+    }
+    const updatedDays = currentSystem.days.map((d) =>
+      d.id === dayId ? { ...d, title: renameTitle.trim() } : d
+    );
+    const updatedSystems = systems.map((s) =>
+      s.id === currentSystem.id ? { ...s, days: updatedDays } : s
+    );
+    soundManager.playClickPop();
+    onUpdateSystems(updatedSystems);
+    setEditingDayId(null);
+  };
 
   const handleSelectSystem = (systemId: string) => {
     const updated = systems.map((s) => ({
@@ -178,9 +204,52 @@ export const WorkoutRoutineHub: React.FC<WorkoutRoutineHubProps> = ({
                     </span>
 
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
-                        {day.title}
-                      </h3>
+                      {editingDayId === day.id ? (
+                        <div className="flex items-center gap-1.5 py-0.5">
+                          <input
+                            type="text"
+                            value={renameTitle}
+                            onChange={(e) => setRenameTitle(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') handleSaveRename(day.id);
+                              if (e.key === 'Escape') setEditingDayId(null);
+                            }}
+                            autoFocus
+                            placeholder="Workout Day Name..."
+                            className="w-full rounded-xl border border-[#d4b26f] bg-black/80 px-2.5 py-1 text-xs sm:text-sm font-bold text-white focus:outline-none"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleSaveRename(day.id)}
+                            className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-xl bg-[#d4b26f] text-black hover:bg-[#e2c487] transition active:scale-95 shadow-sm"
+                            title="Save title"
+                          >
+                            <Check className="w-3.5 h-3.5 stroke-[3]" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setEditingDayId(null)}
+                            className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-xl bg-zinc-800 text-zinc-300 hover:text-white transition"
+                            title="Cancel"
+                          >
+                            <X className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+                            {day.title}
+                          </h3>
+                          <button
+                            type="button"
+                            onClick={() => handleStartRename(day)}
+                            className="flex items-center gap-1 p-1 rounded-md text-zinc-500 hover:text-[#eed891] hover:bg-white/5 transition"
+                            title="Rename workout day"
+                          >
+                            <Pencil className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      )}
                       <div className="flex items-center gap-2 text-xs sm:text-sm text-zinc-400 mt-1 flex-wrap">
                         <span>{day.exercises.length} exercises</span>
                         <span className="text-zinc-600">·</span>
