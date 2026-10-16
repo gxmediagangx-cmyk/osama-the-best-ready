@@ -613,82 +613,143 @@ export const DEFAULT_WORKOUT_LOGS: CompletedSessionLog[] = [
 export const DEFAULT_BOXING_WORKOUTS: BoxingWorkout[] = [
   {
     id: 'boxing-solo-bag-footwork',
-    name: 'Solo Heavy Bag & Sharp Footwork',
-    description: 'High-output solo boxing session when training alone: rhythm jump rope, crisp shadowboxing angles, heavy bag combinations, and fight core.',
+    name: 'Friday Workout Plan (Solo Sandbag & Core)',
+    description: 'Rule: Work hard for 3 minutes → Rest for 1 minute after every round. Warm-up (2 rounds), Sandbag Boxing (6 power rounds), and Core Finisher (3 rounds non-stop).',
     mode: 'solo',
     defaultRoundSeconds: 180,
     defaultRestSeconds: 60,
     drills: [
       {
-        id: 'bdrill-1',
-        name: 'Boxer Skip & Rhythm Jump Rope',
+        id: 'bdrill-fri-1',
+        name: 'Part 1: Warm-Up — Jump Rope (Boxer Skip)',
         category: 'warmup',
         mode: 'solo',
         roundDurationSeconds: 180,
         restSeconds: 60,
         intensity: 'fast',
-        comboOrCues: 'R1: Basic boxer step | R2: High knees + double-unders last 30s | R3: Direction switches & foot speed',
+        comboOrCues: 'Jump over the rope, switching lightly from one foot to the other on your toes → Last 30 seconds of each round: Jump as fast as you can.',
         partnerAlternativeName: 'Partner Mirror Footwork & Tag Warmup',
-        partnerAlternativeCues: 'Keep lead foot outside partner, mirror step-ins & shoulder/knee taps without getting touched.',
-        notes: 'Stay light on the balls of your feet, relax shoulders.',
+        partnerAlternativeCues: 'Mirror partner movement with light foot-to-foot skipping without getting touched.',
+        notes: 'Stay light on the balls of your feet, relax your shoulders, rotate the rope with your wrists.',
         rounds: [
-          { id: 'br-1-1', roundNumber: 1, durationSeconds: 180, restSeconds: 60, completed: false },
-          { id: 'br-1-2', roundNumber: 2, durationSeconds: 180, restSeconds: 60, completed: false },
-          { id: 'br-1-3', roundNumber: 3, durationSeconds: 180, restSeconds: 60, completed: false },
+          {
+            id: 'br-fri-1-1',
+            roundNumber: 1,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'R1: Light boxer skip switching foot-to-foot on toes → Last 30s: Jump as fast as you can!',
+          },
+          {
+            id: 'br-fri-1-2',
+            roundNumber: 2,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'R2: Rhythm boxer skip on toes → Last 30s: Maximum speed sprint!',
+          },
         ],
       },
       {
-        id: 'bdrill-2',
-        name: 'Shadowboxing: Jab Variations & Head Movement',
-        category: 'shadowboxing',
-        mode: 'solo',
-        roundDurationSeconds: 180,
-        restSeconds: 60,
-        intensity: 'technical',
-        comboOrCues: '1-1-2 → Slip Right → 2-3-2 → Pivot out left. Visualize opponent counters after every combo.',
-        partnerAlternativeName: 'Partner Jab-Parry-Counter Flow',
-        partnerAlternativeCues: 'Partner A throws live jabs → Partner B parries/slips & counters with light touch 1-2, switch every 90s.',
-        notes: 'Snap punches back to chin immediately. Chin tucked.',
-        rounds: [
-          { id: 'br-2-1', roundNumber: 1, durationSeconds: 180, restSeconds: 60, completed: false },
-          { id: 'br-2-2', roundNumber: 2, durationSeconds: 180, restSeconds: 60, completed: false },
-          { id: 'br-2-3', roundNumber: 3, durationSeconds: 180, restSeconds: 60, completed: false },
-        ],
-      },
-      {
-        id: 'bdrill-3',
-        name: 'Heavy Bag: Outside-to-Inside Combinations',
+        id: 'bdrill-fri-2',
+        name: 'Part 2: Sandbag Boxing (6 Power Rounds)',
         category: 'bagwork',
         mode: 'solo',
         roundDurationSeconds: 180,
         restSeconds: 60,
         intensity: 'power',
-        comboOrCues: '1-2-3(body)-3(head)-2 | Roll under after last cross | 10-second non-stop speed burnout at clapper',
-        partnerAlternativeName: 'Focus Mitts: Power Combos & Weaves',
-        partnerAlternativeCues: '1-2-3-2 → Duck partner hook → 3-2-3. Partner calls random defensive cues between combos.',
-        notes: 'Turn hips over on hooks and cross. Exhale sharply on every shot.',
+        comboOrCues: 'R1: Jab & Straight Power | R2: Power Hooks | R3: Body & Head Levels | R4: Speed Burnout | R5: Knees & Power | R6: Final Output',
+        partnerAlternativeName: 'Focus Mitts: Power Combos & Counters',
+        partnerAlternativeCues: 'Partner holds pads for 1-2 power, hooks, body-head changes, and burnout combos.',
+        notes: 'Work hard for 3 minutes → Rest for 1 minute after every round. Pivot hard and drive through hips.',
         rounds: [
-          { id: 'br-3-1', roundNumber: 1, durationSeconds: 180, restSeconds: 60, completed: false },
-          { id: 'br-3-2', roundNumber: 2, durationSeconds: 180, restSeconds: 60, completed: false },
-          { id: 'br-3-3', roundNumber: 3, durationSeconds: 180, restSeconds: 60, completed: false },
-          { id: 'br-3-4', roundNumber: 4, durationSeconds: 180, restSeconds: 60, completed: false },
+          {
+            id: 'br-fri-2-1',
+            roundNumber: 1,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 1 (Jab & Straight Power): Throw fast jabs with front hand → Throw hard straight crosses using back foot and hip rotation.',
+          },
+          {
+            id: 'br-fri-2-2',
+            roundNumber: 2,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 2 (Power Hooks): Throw wide hook punches at sides of bag → Pivot front foot hard → Punch straight through the bag.',
+          },
+          {
+            id: 'br-fri-2-3',
+            roundNumber: 3,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 3 (Body & Head Levels): Throw jab to face → Throw hard hook to body → Finish with straight cross to head.',
+          },
+          {
+            id: 'br-fri-2-4',
+            roundNumber: 4,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 4 (Speed Burnout): First 20s: Straight punches as fast as arms move → Next 40s: Heavy single power punches (repeat cycle).',
+          },
+          {
+            id: 'br-fri-2-5',
+            roundNumber: 5,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 5 (Knees & Power): Grab top straps of bag, pull down → Drive heavy knee strikes into bag mixed with power punches.',
+          },
+          {
+            id: 'br-fri-2-6',
+            roundNumber: 6,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 6 (Final Output): Mix all punches (jabs, crosses, hooks, power) at high speed → Empty your tank until time is up!',
+          },
         ],
       },
       {
-        id: 'bdrill-4',
-        name: 'Fighter Abs & Rotational Core Circuit',
+        id: 'bdrill-fri-3',
+        name: 'Part 3: Core Finisher (4-Exercise Circuit)',
         category: 'conditioning',
         mode: 'solo',
-        roundDurationSeconds: 120,
-        restSeconds: 45,
+        roundDurationSeconds: 180,
+        restSeconds: 60,
         intensity: 'conditioning',
-        comboOrCues: '30s Russian Twists + 30s Sit-up 1-2 Punches + 30s Leg Raises + 30s Plank',
-        partnerAlternativeName: 'Medicine Ball Partner Body Conditioning',
-        partnerAlternativeCues: 'Sit-up med-ball throws + light body-shot bracing rounds with partner.',
+        comboOrCues: '45s Standard Crunches → 45s Toe-Touch Crunches → 45s Full Sit-Ups → 45s Bicycle Crunches (3 min non-stop). Rest 1 min, repeat for 3 rounds.',
+        partnerAlternativeName: 'Medicine Ball Partner Core Circuit',
+        partnerAlternativeCues: 'Partner med-ball sit-ups and rotational passes with 1 min rest between rounds.',
+        notes: 'Exercise 1 → 2 → 3 → 4 back-to-back with zero rest. 1) Standard Crunches: knees bent, squeeze upper abs, 1s squeeze at top. 2) Toe-Touches: legs vertical, reach for toes. 3) Full Sit-Ups: chest to knees, roll down slowly. 4) Bicycle Crunches: elbow to opposite knee continuous cycling.',
         rounds: [
-          { id: 'br-4-1', roundNumber: 1, durationSeconds: 120, restSeconds: 45, completed: false },
-          { id: 'br-4-2', roundNumber: 2, durationSeconds: 120, restSeconds: 45, completed: false },
-          { id: 'br-4-3', roundNumber: 3, durationSeconds: 120, restSeconds: 45, completed: false },
+          {
+            id: 'br-fri-3-1',
+            roundNumber: 1,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 1: 45s Standard Crunches → 45s Toe-Touch Crunches → 45s Full Sit-Ups → 45s Bicycle Crunches (0s rest)',
+          },
+          {
+            id: 'br-fri-3-2',
+            roundNumber: 2,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 2: 45s Standard Crunches → 45s Toe-Touch Crunches → 45s Full Sit-Ups → 45s Bicycle Crunches (0s rest)',
+          },
+          {
+            id: 'br-fri-3-3',
+            roundNumber: 3,
+            durationSeconds: 180,
+            restSeconds: 60,
+            completed: false,
+            focusCombo: 'Round 3: 45s Standard Crunches → 45s Toe-Touch Crunches → 45s Full Sit-Ups → 45s Bicycle Crunches (Final Burnout)',
+          },
         ],
       },
     ],
@@ -888,6 +949,22 @@ class LocalGymDatabase {
     }));
   }
 
+  private migrateBoxingWorkoutsIfNeeded(workouts: BoxingWorkout[]): { workouts: BoxingWorkout[]; migrated: boolean } {
+    let migrated = false;
+    const defaultSolo = DEFAULT_BOXING_WORKOUTS[0];
+    const updated = workouts.map((w) => {
+      if (
+        w.id === 'boxing-solo-bag-footwork' &&
+        (w.name === 'Solo Heavy Bag & Sharp Footwork' || !w.name.includes('Friday'))
+      ) {
+        migrated = true;
+        return defaultSolo;
+      }
+      return w;
+    });
+    return { workouts: updated, migrated };
+  }
+
   private migrateDaysIfNeeded(systems: WorkoutSystem[]): { systems: WorkoutSystem[]; migrated: boolean } {
     let migrated = false;
     const defaultDayOne = DEFAULT_WORKOUT_SYSTEMS[0].days[0];
@@ -1059,14 +1136,24 @@ class LocalGymDatabase {
     try {
       const idbVal = await get<BoxingWorkout[]>('osama_boxing_workouts');
       if (idbVal && Array.isArray(idbVal) && idbVal.length > 0) {
-        return this.normalizeBoxingWorkouts(idbVal);
+        const normalized = this.normalizeBoxingWorkouts(idbVal);
+        const { workouts, migrated } = this.migrateBoxingWorkoutsIfNeeded(normalized);
+        if (migrated) {
+          await this.saveBoxingWorkouts(workouts);
+        }
+        return workouts;
       }
 
       const lsVal = localStorage.getItem('osama_boxing_workouts');
       if (lsVal) {
         const parsed = JSON.parse(lsVal);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          return this.normalizeBoxingWorkouts(parsed);
+          const normalized = this.normalizeBoxingWorkouts(parsed);
+          const { workouts, migrated } = this.migrateBoxingWorkoutsIfNeeded(normalized);
+          if (migrated) {
+            await this.saveBoxingWorkouts(workouts);
+          }
+          return workouts;
         }
       }
     } catch (e) {

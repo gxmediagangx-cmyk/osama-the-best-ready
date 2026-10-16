@@ -665,8 +665,8 @@ export const BoxingDrillCard: React.FC<BoxingDrillCardProps> = ({
                       R{r.roundNumber}
                     </span>
 
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-zinc-100">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-zinc-100 flex-wrap">
                         <span>
                           {Math.floor(r.durationSeconds / 60)}:
                           {(r.durationSeconds % 60).toString().padStart(2, '0')} Work
@@ -674,9 +674,14 @@ export const BoxingDrillCard: React.FC<BoxingDrillCardProps> = ({
                         <span className="text-zinc-600">·</span>
                         <span className="text-[#eed891]">{r.restSeconds}s Rest</span>
                       </div>
+                      {r.focusCombo && (
+                        <p className="text-xs text-zinc-300 mt-1 font-medium leading-relaxed">
+                          {r.focusCombo}
+                        </p>
+                      )}
                       {isRoundActive && liveTimerState && (
                         <div
-                          className={`font-mono text-[11px] font-black uppercase ${
+                          className={`font-mono text-[11px] font-black uppercase mt-1 ${
                             liveTimerState.phase === 'rest'
                               ? 'text-emerald-400'
                               : 'text-[#d4b26f]'
